@@ -15,7 +15,7 @@ public class P11057 {
         
         long[] answer = new long [n+2];
         
-        for (int i = 1; i <= n+1 ; i++) {
+        for (int i = 1; i <= n+1 ; i++) {	
         	int insertNumber = 0;
 			for (int j = 0; j <=9 ; j++) {
 				insertNumber += (dp[i-1][j]);
