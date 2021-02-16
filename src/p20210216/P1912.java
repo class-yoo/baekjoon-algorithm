@@ -7,7 +7,7 @@ public class P1912 {
 		Scanner sc = new Scanner(System.in);
 		
 		int n = sc.nextInt();
-		int max = -Integer.MAX_VALUE;
+		int max = -1000;
 		int sum = 0;
 		
 		for (int i = 0; i < n; i++) {
