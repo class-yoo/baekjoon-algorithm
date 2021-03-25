@@ -27,7 +27,7 @@ public class P11652 {
         Long idx = 0L;
         int maxCount = 0;
         for (Long key : map.keySet()) {
-            if (maxCount > map.get(key)) {
+            if (maxCount < map.get(key)) {
                 idx = key;
                 maxCount = map.get(key);
             } else if (maxCount == map.get(key)) {
