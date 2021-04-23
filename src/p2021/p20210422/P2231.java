@@ -8,7 +8,6 @@ public class P2231 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int i = 0;
-        int min = Integer.MAX_VALUE;
         for (i = 1; i < n ; i++) {
             int tempN = i;
             int sum = 0;
