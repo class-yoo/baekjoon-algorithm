@@ -2,7 +2,7 @@ package p2021.p20210424;
 
 import java.util.Scanner;
 
-public class P15649 {
+public class P15650 {
 
     static int n;
     static int m;
@@ -31,7 +31,7 @@ public class P15649 {
             return;
         }
 
-        for (int i = 1; i <= n ; i++) {
+        for (int i = number + 1; i <= n ; i++) {
             if (!isUsed[i]) {
                 String temp = printNumber + i + " ";
                 printCnt++;
@@ -43,3 +43,4 @@ public class P15649 {
         }
     }
 }
+
