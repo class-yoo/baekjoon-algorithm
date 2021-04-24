@@ -31,7 +31,7 @@ public class P15649 {
             return;
         }
 
-        for (int i = 1; i <= n ; i++) {
+        for (int i = number + 1; i <= n ; i++) {
             if (!isUsed[i]) {
                 String temp = printNumber + i + " ";
                 printCnt++;
