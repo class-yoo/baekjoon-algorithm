@@ -1,5 +1,6 @@
 package p2021.p20210424;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class P15649 {
