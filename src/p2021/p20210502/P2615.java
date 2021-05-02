@@ -30,7 +30,7 @@ public class P2615 {
 
                         count++;
 
-                        if (isMaxCount(count)) {
+                        if (!isSameColor(color, space[i-1][j]) && isMaxCount(count)) {
                             if (isEndGame(tempI+1, tempJ, color)) {
                                 printResult(color, i, j);
                                 return;
@@ -49,7 +49,7 @@ public class P2615 {
 
                         count++;
 
-                        if (isMaxCount(count)) {
+                        if (!isSameColor(color, space[i][j-1]) && isMaxCount(count)) {
                             if (isEndGame(tempI, tempJ+1, color)) {
                                 printResult(color, i, j);
                                 return;
@@ -68,7 +68,7 @@ public class P2615 {
 
                         count++;
 
-                        if (isMaxCount(count)) {
+                        if (!isSameColor(color, space[i-1][j-1]) && isMaxCount(count)) {
                             if (isEndGame(tempI+1, tempJ+1, color)) {
                                 printResult(color, i, j);
                                 return;
@@ -89,15 +89,24 @@ public class P2615 {
                         if (!isSameColor(color, space[tempI][tempJ])) break;
 
                         count++;
+                        boolean isSameBeforePointColor = false;
 
-                        if (isMaxCount(count)) {
+                        if (!isOverThanMax(i+1)) {
+                            if (isSameColor(color, space[i+1][j-1])) {
+                                isSameBeforePointColor = true;
+                            }
+                        }
+
+                        if (isSameBeforePointColor == false && isMaxCount(count)) {
                             if(isLessThanMin(tempI-1) || isOverThanMax(tempJ+1)) {
                                 System.out.println(color);
+                                System.out.println(i + " "+ j);
                                 return;
                             }
 
                             if (!isSameColor(color, space[tempI-1][tempJ+1])) {
                                 System.out.println(color);
+                                System.out.println(i + " "+ j);
                                 return;
                             }
 
@@ -111,6 +120,8 @@ public class P2615 {
                 }
             }
         }
+
+        System.out.println(0);
 
     }
 
@@ -137,10 +148,10 @@ public class P2615 {
 
     public static boolean isEndGame(int targetI, int targetJ, int color) {
 
-        int point = space[targetI][targetJ];
-
         if(isOverThanMax(targetI) || isOverThanMax(targetJ))
             return true;
+
+        int point = space[targetI][targetJ];
 
         if (isSameColor(color, point))
             return false;
