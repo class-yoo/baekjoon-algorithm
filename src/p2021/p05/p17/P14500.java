@@ -46,8 +46,9 @@ public class P14500 {
     }
 
     public static void dfs (int i, int j, int sum, int depth) {
-        if (depth == 4) {
+        if (depth >= 4) {
             max = Math.max(max, sum);
+            return;
         }
 
         for (int k = 0; k < 4 ; k++) {
@@ -67,13 +68,15 @@ public class P14500 {
 
     static void exceptionDFS(int i, int j) {
 
-        if (i+di[0] >= 0 && j+dj[1] >= 0 && j+dj[3] < M) // ㅗ
-            max = Math.max(max, arr[i][j] + arr[i+di[0]][j] + arr[i][j+dj[1]] + arr[i][j+dj[3]]);
-        if (i+di[0] >= 0 && j+dj[1] >= 0 && i+di[2] < N) // ㅓ
-            max = Math.max(max, arr[i][j] + arr[i+di[0]][j] + arr[i][j+dj[1]] + arr[i+di[2]][j]);
-        if (j+dj[1] >= 0 && i+di[2] < N && j+dj[3] < M) // ㅜ
-            max = Math.max(max, arr[i][j] + arr[i][j+dj[1]] + arr[i+di[2]][j] + arr[i][j+dj[3]]);
-        if ( i+di[2] < N && j+dj[3] < M && i+di[0] >= 0) // ㅏ
-            max = Math.max(max, arr[i][j] + arr[i+di[2]][j] + arr[i][j+dj[3]] + arr[i+di[0]][j]);
+        int center = arr[i][j];
+
+        if (i-1 >= 0 && j-1 >= 0 && j+1 < M) // ㅗ
+            max = Math.max(max, center + arr[i-1][j] + arr[i][j-1] + arr[i][j+1]);
+        if (i-1 >= 0 && j-1 >= 0 && i+1 < N) // ㅓ
+            max = Math.max(max, center + arr[i-1][j] + arr[i][j-1] + arr[i+1][j]);
+        if (j-1 >= 0 && i+1 < N && j+1 < M) // ㅜ
+            max = Math.max(max, center + arr[i][j-1] + arr[i+1][j] + arr[i][j+1]);
+        if ( i+1 < N && j+1 < M && i-1 >= 0) // ㅏ
+            max = Math.max(max, center + arr[i+1][j] + arr[i][j+1] + arr[i-1][j]);
     }
 }
