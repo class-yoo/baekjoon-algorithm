@@ -1,4 +1,4 @@
-package p2021.p05.p22;
+package p2021.p05.p23;
 
 import java.io.BufferedReader;
 import java.io.IOException;
