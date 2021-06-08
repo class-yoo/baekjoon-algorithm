@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 public class P2504 {
+
+    public static final String NAME = "AA";
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
