@@ -1,40 +1,38 @@
 package p2021.p07.p01;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class P2805 {
-    private static int N;
-    private static int M;
-    private static int[] trees;
-    private static long max = 0;
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        N = scanner.nextInt();
-        M = scanner.nextInt();
+        int[] arr = new int[n];
 
-        trees = new int[N + 1];
-
-        for (int i = 1; i <= N; i++) {
-            trees[i] = scanner.nextInt();
-            max = Math.max(max, trees[i]);
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
 
-        long start = 0;
-        long end = max;
+        Arrays.sort(arr);
+
+        int start = 0;
+        int end = arr[n-1];
+        int mid = 0;
 
         while (start <= end) {
-            long mid = (start + end) / 2;
-            long sum = 0;
+            mid = (start + end) / 2;
 
-            for (int tree : trees) {
-                if (tree > mid) {
-                    sum += tree - mid;
-                }
+            int idx = arr.length - 1;
+            long sum = 0;
+            while(arr[idx] > mid) {
+                sum += arr[idx--] - mid ;
+                if (idx < 0) break;
             }
 
-            if (sum >= M) {
+            if (sum >= m) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
