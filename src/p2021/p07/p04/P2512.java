@@ -1,44 +1,49 @@
 package p2021.p07.p04;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class P2512 {
     public static void main(String[] args){
-
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        int[] array = new int[n];
-        int sum = 0;
+        int[] budget = new int [n];
         int max = 0;
+        int total = 0;
 
         for (int i = 0; i < n; i++) {
-            sum += array[i] = sc.nextInt();
+            budget[i] = sc.nextInt();
+            max = Math.max(max, budget[i]);
+            total += budget[i];
         }
 
-        int budget = sc.nextInt();
-        Arrays.sort(array);
+        int m = sc.nextInt();
 
-        if (sum <= budget) {
-            System.out.println(array[n - 1]);
-        } else {
-            int tmp = budget / n;
-            int remain = n;
+        if (total <= m) {
+            System.out.println(max);
+            return;
+        }
+
+        int start = 3;
+        int end = max;
+        int mid = 0;
+
+        while (start <= end) {
+            mid = (start + end) / 2;
+
+            int sum = 0;
+
             for (int i = 0; i < n; i++) {
-                if (array[i] <= tmp) {
-                    budget -= array[i];
-                } else {
-                    remain = n - i;
-                    tmp = budget / remain;
-                    if (array[i] > tmp) {
-                        break;
-                    }
-                    i--;
-                }
+                sum += mid < budget[i] ? mid : budget[i];
             }
-            System.out.println(budget / remain);
+
+            if (sum <= m) {
+                start =  mid + 1;
+            } else {
+                end = mid - 1;
+            }
         }
 
+        System.out.println(end);
     }
 }
