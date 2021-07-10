@@ -72,8 +72,6 @@ public class P11663 {
         }
         int startIndex = left;
 
-//        System.out.println("페어 : " + startIndex + " " + endIndex);
-
         return endIndex - startIndex;
     }
 }
