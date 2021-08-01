@@ -3,7 +3,7 @@ package p2021.p07.p31;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class P15653 {
+public class P15654 {
     static int[] numbers;
     static int[] initNumbers;
     static int n;
