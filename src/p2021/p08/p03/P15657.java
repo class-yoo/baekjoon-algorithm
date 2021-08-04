@@ -1,9 +1,9 @@
-package p2021.p08.p02;
+package p2021.p08.p03;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class P15656 {
+public class P15657 {
     static int[] numbers;
     static int[] initNumbers;
     static int n;
@@ -23,11 +23,11 @@ public class P15656 {
         }
 
         Arrays.sort(initNumbers);
-        dfs(0);
+        dfs(0, 0);
         System.out.println(sb.toString());
     }
 
-    public static void dfs(int idx) {
+    public static void dfs(int idx, int preNum) {
         if (idx == m) {
             for (int i = 0; i < m; i++) {
                 sb.append(numbers[i] + " ");
@@ -36,9 +36,9 @@ public class P15656 {
             return;
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = preNum; i < n; i++) {
             numbers[idx] = initNumbers[i];
-            dfs(idx + 1);
+            dfs(idx + 1, i);
         }
     }
 }
