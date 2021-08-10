@@ -33,6 +33,7 @@ public class P10971 {
 
 
     public static void dfs(int visitCnt, int curCountry, int price) {
+        if(price >= min) return;
         if (visitCnt == n && curCountry == dest) {
             min = Math.min(min, price);
             return;
