@@ -26,6 +26,10 @@ public class P14712 {
         if (!isNot4Block(i, j)) {
             return;
         }
+
+        for (int k = 0; k < n; k++) {
+
+        }
     }
 
     private static boolean isNot4Block(int i, int j) {
